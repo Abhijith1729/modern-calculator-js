@@ -1,28 +1,16 @@
-# Modern Calculator Web App
+# Modern Calculator
 
 A modern calculator built using HTML, CSS, and JavaScript.
 
 ## Features
 
-- Addition, subtraction, multiplication, division
-- Modern UI design
-- Responsive layout
-- Interactive buttons
+- Responsive design
+- Basic arithmetic operations
+- Clean UI
 
-## Technologies Used
+## Tech Stack
 
 - HTML
 - CSS
 - JavaScript
 
-## Live Demo
-
-https://abhijith1729.github.io/modern-calculator-js/
-
-## GitHub Repository
-
-https://github.com/Abhijith1729/modern-calculator-js
-
-## Author
-
-Abhijith Vyshnava
