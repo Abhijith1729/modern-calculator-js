@@ -14,3 +14,9 @@ A modern calculator built using HTML, CSS, and JavaScript.
 - CSS
 - JavaScript
 
+## Live Demo
+
+https://abhijith1729.github.io/modern-calculator-js/
+
+
+
