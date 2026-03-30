@@ -81,3 +81,6 @@ Abhijith
 
 GitHub
 https://github.com/Abhijith1729
+## Preview
+
+![Calculator Screenshot](screenshot.png)
