@@ -1,21 +1,72 @@
+const result = document.getElementById("result");
+
 function appendValue(value) {
-    document.getElementById("result").value += value;
+    const lastChar = result.value.slice(-1);
+
+    // prevent double operators
+    if ("+-*/".includes(value) && "+-*/".includes(lastChar)) {
+        return;
+    }
+
+    result.value += value;
 }
 
 function clearResult() {
-    document.getElementById("result").value = "";
+    result.value = "";
 }
 
 function deleteLast() {
-    let current = document.getElementById("result").value;
-    document.getElementById("result").value = current.slice(0, -1);
+    result.value = result.value.slice(0, -1);
 }
 
 function calculate() {
+
+    let expression = result.value;
+
     try {
-        let result = eval(document.getElementById("result").value);
-        document.getElementById("result").value = result;
+
+        let answer = eval(expression);
+
+        if (!isFinite(answer)) {
+            result.value = "Error";
+            return;
+        }
+
+        let history = document.getElementById("history");
+
+        let entry = document.createElement("div");
+        entry.textContent = expression + " = " + answer;
+
+        history.appendChild(entry);
+
+        result.value = answer;
+        if (history.children.length > 10) {
+    history.removeChild(history.firstChild);
+}
     } catch {
-        document.getElementById("result").value = "Error";
+        result.value = "Error";
     }
 }
+
+document.addEventListener("keydown", function (event) {
+
+    if (!isNaN(event.key)) {
+        appendValue(event.key);
+    }
+
+    if (["+", "-", "*", "/", "."].includes(event.key)) {
+        appendValue(event.key);
+    }
+
+    if (event.key === "Enter") {
+        calculate();
+    }
+
+    if (event.key === "Backspace") {
+        deleteLast();
+    }
+
+    if (event.key === "Escape") {
+        clearResult();
+    }
+});
